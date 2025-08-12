@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tushar's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-100 text-zinc-800 font-sans">
+
+    <nav class="bg-teal-600 text-white shadow-md py-4 px-6 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold tracking-wide">Tushar</a>
+      <ul class="flex gap-6 text-lg font-medium">
+        <li><a href="#home" class="hover:text-teal-200">Home</a></li>
+        <li><a href="#about" class="hover:text-teal-200">About</a></li>
+        <li><a href="#qualifications" class="hover:text-teal-200">Qualifications</a></li>
+        <li><a href="#projects" class="hover:text-teal-200">Projects</a></li>
+        <li><a href="#contact" class="hover:text-teal-200">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="home" class="bg-sky-50 text-center py-20 px-6">
+      <h1 class="text-5xl font-extrabold mb-4 text-teal-700">Hi, I'm Tushar</h1>
+      <p class="max-w-2xl mx-auto text-lg text-zinc-600 mb-6">
+        Passionate about technology and problem-solving. I specialize in building responsive, user-friendly web applications with modern frameworks.
+      </p>
+      <a href="#projects" class="inline-block bg-teal-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-teal-700 transition">
+        View My Work
+      </a>
+    </section>
+
+    <section id="about" class="bg-white max-w-5xl mx-auto my-12 p-8 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-semibold text-center mb-8 text-teal-700">About Me</h2>
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <img src="Tushar.jpg" alt="Tushar" class="w-40 h-40 object-cover rounded-full shadow-md" />
+        <div class="text-zinc-700 text-lg space-y-4">
+          <p>
+            I'm a self-driven developer focused on building meaningful digital experiences. I have hands-on experience with HTML, CSS, JavaScript, and frameworks like React and Tailwind CSS.
+          </p>
+          <p>
+            Outside of coding, I enjoy exploring tech trends, reading, and working with teams on impactful ideas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="qualifications" class="bg-white max-w-5xl mx-auto my-12 p-8 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-semibold text-center mb-8 text-teal-700">Qualifications</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-left text-sm text-zinc-700">
+          <thead class="bg-zinc-200 uppercase tracking-wide text-sm">
+            <tr>
+              <th class="px-4 py-3">Degree / Course</th>
+              <th class="px-4 py-3">Institution</th>
+              <th class="px-4 py-3">Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-zinc-100">
+              <td class="px-4 py-3">B.Tech CSE</td>
+              <td class="px-4 py-3">Chandigarh University</td>
+              <td class="px-4 py-3">2027</td>
+            </tr>
+            <tr class="hover:bg-zinc-100">
+              <td class="px-4 py-3">Class 12th</td>
+              <td class="px-4 py-3">Sant Gyaneshwar Model School</td>
+              <td class="px-4 py-3">2022</td>
+            </tr>
+            <tr class="hover:bg-zinc-100">
+              <td class="px-4 py-3">Class 10th</td>
+              <td class="px-4 py-3">Shri Baba Mast Nath Public School</td>
+              <td class="px-4 py-3">2020</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="projects" class="bg-white max-w-5xl mx-auto my-12 p-8 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-semibold text-center mb-8 text-teal-700">Projects</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-left text-sm text-zinc-700">
+          <thead class="bg-zinc-200 uppercase tracking-wide text-sm">
+            <tr>
+              <th class="px-4 py-3">Project</th>
+              <th class="px-4 py-3">Description</th>
+              <th class="px-4 py-3">Tech Used</th>
+              <th class="px-4 py-3">Year</th>
+              <th class="px-4 py-3">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hover:bg-zinc-100">
+              <td class="px-4 py-3">Law Project</td>
+              <td class="px-4 py-3">Web app for law guidance in native language.</td>
+              <td class="px-4 py-3">React, Tailwind, Vercel</td>
+              <td class="px-4 py-3">2024</td>
+              <td class="px-4 py-3">
+                <a href="#" class="text-teal-600 hover:underline font-medium">View</a>
+              </td>
+            </tr>
+            <tr class="hover:bg-zinc-100">
+              <td class="px-4 py-3">Sudhaar-City</td>
+              <td class="px-4 py-3">Platform for city waste collection and recycling.</td>
+              <td class="px-4 py-3">Node.js, Express, MongoDB</td>
+              <td class="px-4 py-3">2023</td>
+              <td class="px-4 py-3">
+                <a href="#" class="text-teal-600 hover:underline font-medium">View</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer id="contact" class="bg-teal-700 text-white py-10 text-center">
+      <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+      <p class="text-lg mb-6">Connect with me on the platforms below:</p>
+      <div class="space-x-6 text-lg font-medium">
+        <a href="#" class="hover:text-teal-300">LinkedIn</a>
+        <a href="#" class="hover:text-teal-300">GitHub</a>
+        <a href="#" class="hover:text-teal-300">Email</a>
+      </div>
+      <p class="mt-8 text-sm text-teal-200">&copy; 2025 Tushar's Portfolio</p>
+    </footer>
+
+  </body>
+</html>
