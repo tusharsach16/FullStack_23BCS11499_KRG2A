@@ -2,6 +2,7 @@ package com.example.Hospital.dto;
 
 public class AdminDTO {
 
+    private String email;
     private String username;
     private String password;
 
@@ -10,11 +11,18 @@ public class AdminDTO {
     public AdminDTO() {
     }
 
-    public AdminDTO(String username, String password) {
+    public AdminDTO(String email, String username, String password) {
+        this.email = email;
         this.username = username;
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public String getUsername() {
         return username;
     }

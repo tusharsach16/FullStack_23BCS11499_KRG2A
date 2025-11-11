@@ -16,6 +16,9 @@ public class Admin {
     @Column(name = "admin_id")
     private Long adminid;
 
+    @Column(name = "email", nullable = false, unique = true)
+    private String email; 
+
     @Column(name = "user_name", nullable = false, unique = true)
     private String username;
 
@@ -25,7 +28,8 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String username, String password) {
+    public Admin(String email, String username, String password) {
+        this.email = email;
         this.username = username;
         this.password = password;
     }
@@ -38,6 +42,14 @@ public class Admin {
         this.adminid = adminid;
     }
 
+    public String getEmail() {   
+        return email;
+    }
+
+    public void setEmail(String email) {  
+        this.email = email;
+    }
+    
     public String getUsername() {
         return username;
     }

@@ -3,6 +3,7 @@ package com.example.Hospital.controller;
 import com.example.Hospital.dto.AdminDTO;
 import com.example.Hospital.dto.LoginDTO;
 import com.example.Hospital.response.LoginResponse;
+import com.example.Hospital.response.ApiResponse;
 import com.example.Hospital.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +18,16 @@ public class AdminController {
     private AdminService adminService;
 
     @PostMapping(path = "/register")
-    public ResponseEntity<String> registerAdmin(@RequestBody AdminDTO adminDTO) {
+    public ResponseEntity<ApiResponse<String>> registerAdmin(@RequestBody AdminDTO adminDTO) {
         String adminUsername = adminService.addadmin(adminDTO);
-        return ResponseEntity.ok("Admin Registered Successfully: " + adminUsername);
+        ApiResponse<String> api = new ApiResponse<>(true, "Admin Registered Successfully", adminUsername);
+        return ResponseEntity.ok(api);
     }
  
     @PostMapping(path = "/login")
-    public ResponseEntity<LoginResponse> loginAdmin(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<ApiResponse<LoginResponse>> loginAdmin(@RequestBody LoginDTO loginDTO) {
         LoginResponse loginResponse = adminService.loginAdmin(loginDTO);
-        return ResponseEntity.ok(loginResponse);
+        ApiResponse<LoginResponse> api = new ApiResponse<>(true, loginResponse.getMessage(), loginResponse);
+        return ResponseEntity.ok(api);
     }
 }

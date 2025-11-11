@@ -1,5 +1,4 @@
 package com.example.Hospital.config;
-
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
@@ -27,13 +26,36 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtFilter jwtFilter) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) 
-            .authorizeHttpRequests(authz -> authz
-                .anyRequest().permitAll() 
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                    "/api/v1/admin/login",
+                    "/api/v1/admin/register",
+                    "/api/v1/patients/signup",
+                    "/api/v1/patients/login",
+                    "/api/doctors/login" ,
+                    "api/doctors",
+                    "api/appointments",
+                    "api/doctors/{id}",
+                    "api/appointments/doctor/{doctorId}",
+                    "api/appointments/patient/{email}",
+                    "api/appointments/{appointmentId}/cancel"
+                ).permitAll()
+
+                .requestMatchers("/api/doctors/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_PATIENT")
+                .requestMatchers("/api/v1/patients/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_RECEPTIONIST", "ROLE_PATIENT")
+
+                .requestMatchers("/api/appointments/doctor/**").hasAuthority("ROLE_DOCTOR")
+                .requestMatchers("/api/appointments/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_RECEPTIONIST", "ROLE_PATIENT")
+
+                .requestMatchers("/api/medical-records/**").hasAnyAuthority("ROLE_DOCTOR", "ROLE_PATIENT")
+
+                .anyRequest().authenticated()
             )
-            .cors(cors -> cors.configurationSource(corsConfigurationSource())); 
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()));
 
         return http.build();
     }
@@ -41,7 +63,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);
