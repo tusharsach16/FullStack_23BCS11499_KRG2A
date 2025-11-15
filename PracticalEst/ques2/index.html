@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar with Active Link</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        .active {
+            background-color: #ff9800;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="body"> 
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="index.html">About</a>
+        <a href="index.html">Contact</a>
+    </nav>
+
+    <script>
+        const currentPage = window.location.pathname.split("/").pop();
+
+        const links = document.querySelectorAll(".navbar a");
+
+        links.forEach(link => {
+            const linkPage = link.getAttribute("href");
+
+            if (linkPage === currentPage) {
+                link.classList.add("active");
+            }
+
+            if (currentPage === "" && linkPage === "index.html") {
+                link.classList.add("active");
+            }
+        });
+        
+    </script>
+
+</body>
+</html>
